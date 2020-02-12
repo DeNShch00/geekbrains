@@ -84,6 +84,7 @@ body {
     font-style: normal;
 }
 
+
 .product_tech_specif + table {
     width: 400px;
     height: 300px;
@@ -93,9 +94,11 @@ body {
     border: 1px solid black;
 }
 
+
 .product_tech_specif + table td {
     border: 1px solid black;
 }
+
 
 .product_tech_specif + table tr:first-child {
     height: 30px;
@@ -104,8 +107,12 @@ body {
 
 
 .product_img {
-    background-color: darkgray;
-    padding: 5px;
+    outline: 3px solid darkgray;
+}
+
+
+.product_img:hover {
+    outline: 0px;
 }
 
 
@@ -114,10 +121,11 @@ body {
     width: 300px;
     color: cornflowerblue;
     font: italic 17px "Times New Roman";
-}
-
-
-.feedback textarea:active {
-    color: red;
     text-transform: capitalize;
 }
+
+.email_input:focus {
+    color: deeppink!important;
+    background-color: cornsilk;
+}
+
