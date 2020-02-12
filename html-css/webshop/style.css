@@ -39,7 +39,8 @@ body {
 
 .product_short_descr,
 .product_full_descr,
-.product_specif {
+.product_specif,
+.product_tech_specif  {
     color: black;
     font-size: 18px;
     font-weight: 400;
@@ -74,6 +75,34 @@ body {
 }
 
 
+.product_short_descr + p:first-letter,
+.product_full_descr + p:first-letter,
+.product_specif + ul > li:first-child:first-letter {
+    font-size: 20px;
+    color: coral;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.product_tech_specif + table {
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    vertical-align: middle;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.product_tech_specif + table td {
+    border: 1px solid black;
+}
+
+.product_tech_specif + table tr:first-child {
+    height: 30px;
+    background-color: beige;
+}
+
+
 .product_img {
     background-color: darkgray;
     padding: 5px;
@@ -85,4 +114,10 @@ body {
     width: 300px;
     color: cornflowerblue;
     font: italic 17px "Times New Roman";
+}
+
+
+.feedback textarea:active {
+    color: red;
+    text-transform: capitalize;
 }
