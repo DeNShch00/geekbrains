@@ -13,26 +13,22 @@ body {
 
 
 .header {
-    height: 150px;
-    background-color: azure;
+    height: 130px;
+/*    background-color: azure;*/
+    background-image: url(img/header_bg.jpg)
 }
 
 .logo {
     width: 150px;
     margin-left: 10px;
     margin-top: 15px;
-    float: left
+    margin-bottom: 10px;
+    float: left;
 }
 
 
 .menu {
-/*    margin-top: 50px;*/
-/*    display: inline;*/
-
-/*    margin-left: auto;*/
-/*    margin-right: 0px;*/
-/*    position: absolute;*/
-    right: 0px;
+    float: right;
 }
 
 
@@ -51,12 +47,37 @@ body {
     color: cadetblue;
     text-decoration: none;
     font: bold 18px Arial;
-/*    display: block;*/
+    display: block;
 }
 
 
 .menu li a:hover {
-    color:crimson
+    color:crimson;
+}
+
+
+.header hr {
+    clear: both;
+}
+
+
+.footer {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    background-color: antiquewhite;
+}
+
+
+.catalog_item {
+    display: inline-block;
+    margin: 10px;
+}
+
+
+.catalog_item img {
+    width: 60px;
+    height: 60px;
 }
 
 
@@ -69,7 +90,6 @@ body {
     font-weight: 400;
     background-color: #eaeaea;
 }
-
 
 
 .product_short_descr + p {
