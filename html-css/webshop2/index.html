@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Historical Games</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -16,18 +18,12 @@
                     <p class="topbar-logo-top-text">historical</p>
                     <p class="topbar-logo-bottom-text">games</p>
                 </div>
-                <div class="topbar-phone">
-                    <img src="img/phone-ico.png" alt="topbar-phone-ico" class="topbar-phone-ico">
-                    <p class="topbar-phone-text">+123 456 7890</p>
-                </div>
-                <div class="topbar-email">
-                    <img src="img/email-ico.png" alt="topbar-email-ico" class="topbar-email-ico">
-                    <p class="topbar-email-text">info@example.com</p>
-                </div>
-                <div class="topbar-search">
-                <input type="text" class="topbar-search-input" placeholder="Search">
+                <img src="img/phone-ico.png" alt="topbar-phone-ico" class="topbar-phone-ico">
+                <p class="topbar-phone-text topbar-text">+123 456 7890</p>
+                <img src="img/email-ico.png" alt="topbar-email-ico" class="topbar-email-ico">
+                <p class="topbar-email-text topbar-text">info@example.com</p>
+                <input type="text" class="topbar-search-input topbar-text" placeholder="Search">
                 <a href="#" class="topbar-search-go"><img src="img/search-ico.png" alt="topbar-search-ico" class="topbar-search-ico"></a>
-                </div>
             </div>
             <ul class="menu">
                 <li class="menu-item"><a href="#" class="menu-link menu-link-active">Home</a></li>
@@ -41,6 +37,7 @@
         </div>
         <div class="welcome-board">
             <p class="welcome-top-text">Nunc eget nibh</p>
+            <div class="welcome-top-text-underline"></div>
             <p class="welcome-main-text">Morbi in nisl auctor</p>
             <div class="welcome-socials">
                 <a href="#" class="welcome-socials-link"><img src="img/facebook-ico.png" alt="welcome-socials-ico-facebook" class="welcome-socials-ico"></a>
@@ -51,29 +48,85 @@
         </div>
     </div>
     <div class="about-us">
-       <img src="img/about-us.jpg" alt="about-us-img" class="about-us-img">
-        <h1 class="about-us-header">About Us!</h1>
-        <p class="about-us-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Ut&nbsp;enim ad&nbsp;minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut&nbsp;aliquid ex&nbsp;ea&nbsp;commodi consequatur?<br><br>Quis autem vel eum iure reprehenderit qui in&nbsp;ea&nbsp;voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+        <div class="abuot-us-description">
+            <h1 class="about-us-header">About Us!</h1>
+            <p class="about-us-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Ut&nbsp;enim ad&nbsp;minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut&nbsp;aliquid ex&nbsp;ea&nbsp;commodi consequatur?<br><br>Quis autem vel eum iure reprehenderit qui in&nbsp;ea&nbsp;voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+        </div>
+        <img src="img/about-us.jpg" alt="about-us-img" class="about-us-img">
     </div>
     <div class="services">
+        <h1 class="services-header">Services</h1>
         <div class="services-row">
-            <div class="service">
-                <div class="service-description">
-                    <h3 class="service-header">Repreh Qui In Ea Voluptate</h3>
-                    <p class="service-text">Itaque earum rerum hic tenetur a&nbsp;sapiente delectus, ut&nbsp;aut
-                        reiciendis voluptatibus maiores alias consequatur aut
-                        perferendis doloribus asperiores repellat.</p>
-                </div>
-                <a href="#" class="service-link"><img src="" alt="" class="service-ico"></a>
+            <div class="service-description left-service-description">
+                <h3 class="service-name service-name-active">Repreh Qui In Ea Voluptate</h3>
+                <p class="service-text">Itaque earum rerum hic tenetur a&nbsp;sapiente delectus, ut&nbsp;aut
+                    reiciendis voluptatibus maiores alias consequatur aut
+                    perferendis doloribus asperiores repellat.</p>
             </div>
-            <div class="service">
-                <div class="service-description">
-                    <h3 class="service-header">Repreh Qui In Ea Voluptate</h3>
-                    <p class="service-text">Itaque earum rerum hic tenetur a&nbsp;sapiente delectus, ut&nbsp;aut
-                        reiciendis voluptatibus maiores alias consequatur aut
-                        perferendis doloribus asperiores repellat.</p>
-                </div>
-                <a href="#" class="service-link"><img src="" alt="" class="service-ico"></a>
+            <a href="#" class="service-link left-service-link service-link-active"><img src="img/service-1-1-ico.png" alt="service-1-1-ico" class="service-ico"></a>
+            <a href="#" class="service-link right-service-link"><img src="img/service-1-2-ico.png" alt="service-1-2-ico" class="service-ico"></a>
+            <div class="service-description right-service-description">
+                <h3 class="service-name">Voluptatibus Maiores Alias</h3>
+                <p class="service-text">Itaque earum rerum hic tenetur a&nbsp;sapiente delectus, ut&nbsp;aut
+                    reiciendis voluptatibus maiores alias consequatur aut
+                    perferendis doloribus asperiores repellat.</p>
+            </div>
+        </div>
+        <div class="services-row">
+            <div class="service-description left-service-description">
+                <h3 class="service-name">Aut Perferendis Doloribus</h3>
+                <p class="service-text">Itaque earum rerum hic tenetur a&nbsp;sapiente delectus, ut&nbsp;aut
+                    reiciendis voluptatibus maiores alias consequatur aut
+                    perferendis doloribus asperiores repellat.</p>
+            </div>
+            <a href="#" class="service-link left-service-link"><img src="img/service-2-1-ico.png" alt="service-2-1-ico" class="service-ico"></a>
+            <a href="#" class="service-link right-service-link"><img src="img/service-2-2-ico.png" alt="service-2-2-ico" class="service-ico"></a>
+            <div class="service-description right-service-description">
+                <h3 class="service-name">Dut Aut Reiciendis Maiores</h3>
+                <p class="service-text">Itaque earum rerum hic tenetur a&nbsp;sapiente delectus, ut&nbsp;aut
+                    reiciendis voluptatibus maiores alias consequatur aut
+                    perferendis doloribus asperiores repellat.</p>
+            </div>
+        </div>
+        <div class="services-row">
+            <div class="service-description left-service-description">
+                <h3 class="service-name">Maiores Alias Consequatur</h3>
+                <p class="service-text">Itaque earum rerum hic tenetur a&nbsp;sapiente delectus, ut&nbsp;aut
+                    reiciendis voluptatibus maiores alias consequatur aut
+                    perferendis doloribus asperiores repellat.</p>
+            </div>
+            <a href="#" class="service-link left-service-link"><img src="img/service-3-1-ico.png" alt="service-3-1-ico" class="service-ico"></a>
+            <a href="#" class="service-link right-service-link"><img src="img/service-3-2-ico.png" alt="service-3-2-ico" class="service-ico"></a>
+            <div class="service-description right-service-description">
+                <h3 class="service-name">Doloribus Volupta Maiores</h3>
+                <p class="service-text">Itaque earum rerum hic tenetur a&nbsp;sapiente delectus, ut&nbsp;aut
+                    reiciendis voluptatibus maiores alias consequatur aut
+                    perferendis doloribus asperiores repellat.</p>
+            </div>
+        </div>
+    </div>
+    <div class="gallery">
+        <h1 class="gallery-header">Our Gallery</h1>
+        <div class="gallery-board">
+            <div class="gallery-item">
+                <a href="#" class="gallery-item-link"><img src="img/gallery-assasin.jpg" alt="gallery-assasin" class="gallery-item-img"></a>
+                <h3 class="gallery-item-name">ASSASIN'S CREED: Rogue</h3>
+                <a href="#" class="gallery-item-buy">Buy</a>
+            </div>
+            <div class="gallery-item">
+                <a href="#" class="gallery-item-link"><img src="img/gallery-tomb.jpg" alt="gallery-tomb" class="gallery-item-img"></a>
+                <h3 class="gallery-item-name">TOMB RAIDER</h3>
+                <a href="#" class="gallery-item-buy">Buy</a>
+            </div>
+            <div class="gallery-item">
+                <a href="#" class="gallery-item-link"><img src="img/gallery-ryse.jpg" alt="gallery-ryse" class="gallery-item-img"></a>
+                <h3 class="gallery-item-name">RYSE: Son Of Rome</h3>
+                <a href="#" class="gallery-item-buy">Buy</a>
+            </div>
+            <div class="gallery-item">
+                <a href="#" class="gallery-item-link"><img src="img/gallery-wow.jpg" alt="gallery-wow" class="gallery-item-img"></a>
+                <h3 class="gallery-item-name">WORLD OF WARCRAFT:<br>Wrath Of The Linch King</h3>
+                <a href="#" class="gallery-item-buy">Buy</a>
             </div>
         </div>
     </div>
