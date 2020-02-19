@@ -75,7 +75,7 @@ TOPBAR
     font-size: 15px;
     font-weight: 500;
     line-height: 22.36px;
-    letter-spacing: 31.41px;
+    letter-spacing: 30.41px;
 }
 .topbar-phone-ico {
     margin-left: 155px;
@@ -92,6 +92,7 @@ TOPBAR
 .topbar-email-text {
     margin-left: 14px;
     display: inline-block;
+    text-decoration: none;
 }
 .topbar-search-input {
     margin-left: 100px;
