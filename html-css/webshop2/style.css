@@ -404,4 +404,21 @@ TESTIMONIAL
     font-weight: 300;
 }
 
+/*
+================================================================
+FOOTER
+================================================================
+*/
+.footer {
+    border-top: 90px solid #fff;
+    height: 71px;
+    background-color: #000000;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Arial Narrow";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 73px;
+    letter-spacing: 0.16px;
+}
 
