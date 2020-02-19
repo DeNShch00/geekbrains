@@ -406,6 +406,66 @@ TESTIMONIAL
 
 /*
 ================================================================
+TEAM
+================================================================
+*/
+.team {
+        border-top: 96px solid #fff;
+}
+.team-header {
+    padding-top: 98px;
+    text-align: center;
+    color: #f44336;
+    font-family: "Poppins";
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 48px;
+}
+.team-board {
+    margin-top: 61px;
+    display: flex;
+    justify-content: center;
+}
+.team-member {
+    width: 270px;
+    margin: 0 15px;
+}
+.team-member-link {
+}
+.team-member-img {
+}
+.team-member-name {
+    margin-top: 21px;
+    color: #f44336;
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 500;
+/*    line-height: 35px;*/
+}
+.team-member-position {
+    margin-top: 5px;
+    color: #838383;
+    font-size: 16px;
+    font-weight: 300;
+/*    line-height: 10px;*/
+}
+.team-member-socials {
+    margin-top: 17px;
+}
+.team-member-socials-link {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 35px;
+    text-align: center;
+    border: 2px solid #000;
+    margin-right: 17px;
+}
+.team-member-socials-ico {
+}
+
+/*
+================================================================
 FOOTER
 ================================================================
 */
