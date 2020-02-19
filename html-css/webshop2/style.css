@@ -598,6 +598,27 @@ CONTACTS
 
 /*
 ================================================================
+MAP
+================================================================
+*/
+.map {
+    background-color: #fff;
+    border-top: 96px solid #fff;
+}
+.map-header {
+    color: #f44336;
+    font-family: "Poppins";
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 48px;
+    text-align: center;
+}
+.map-board {
+    margin-top: 25px;
+}
+
+/*
+================================================================
 FOOTER
 ================================================================
 */
