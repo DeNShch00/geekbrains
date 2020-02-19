@@ -346,4 +346,62 @@ GALLERY
     letter-spacing: 0.14px;
 }
 
+/*
+================================================================
+TESTIMONIAL
+================================================================
+*/
+.testimonial {
+    height: 537px;
+    background-image: url(img/testimonial-bg.jpg);
+    background-color: #fff;
+    border-top: 186px solid #fff;
+}
+.testimonial-header {
+    padding-top: 85px;
+    text-align: center;
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 48px;
+}
+.testimonial-board {
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+}
+.testimonial-prev,
+.testimonial-next {
+    display: inline-block;
+    margin-top: 108px;
+    width: 37px;
+    height: 37px;
+    border: 1px solid #fff;
+    line-height: 42px;
+    text-align: center
+}
+.testimonial-navi-ico {
+}
+.testimonial-quote {
+    width: 935px;
+    text-align: center;
+    margin: 0 79px;
+}
+.testimonial-quote-ico {
+}
+.testimonial-quote-text {
+    margin-top: 51px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+}
+.testimonial-quote-author {
+    margin-top: 40px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+}
+
 
