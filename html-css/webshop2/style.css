@@ -439,6 +439,74 @@ TESTIMONIAL
 
 /*
 ================================================================
+NEWS_EVENTS
+================================================================
+*/
+.news-events {
+    background-color: #fff;
+    padding-top: 97px;
+}
+.news-events-header {
+    text-align: center;
+}
+.news-events-board {
+    margin-top: 103px;
+    display: flex;
+    justify-content: center;
+}
+.news {
+}
+.news-header {
+    color: #000000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 48px;
+}
+.news-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.news-description {
+    margin-left: 67px;
+}
+.news-date {
+    width: 98px;
+    height: 139px;
+    background-image: url(img/news-date-bg.png);
+    color: #9e9e9e;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 139px;
+}
+.news-date:first-line {
+    color: #000000;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 500;
+/*    line-height: 48px;*/
+}
+.news-link {
+    text-decoration: none;
+    color: #f44336;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 48px;
+}
+.news-text {
+    width: 308px;
+    color: #9e9e9e;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+}
+.events {
+    width: 570px;
+}
+/*
+================================================================
 TEAM
 ================================================================
 */
