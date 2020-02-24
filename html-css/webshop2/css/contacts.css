@@ -106,14 +106,6 @@ TOPBAR
     padding: 12px 16px;
     background-image: url(../img/topbar-dark-bg.svg);
 /*    opacity: 0.5;*/
-
-}
-.topbar-search-input::placeholder {
-    color: #ffffff;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 22.36px;
-    letter-spacing: 0.36px;
 }
 .topbar-search-go {
     border: 1px solid #fff;
