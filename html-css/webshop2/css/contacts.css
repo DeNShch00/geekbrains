@@ -107,6 +107,9 @@ TOPBAR
     background-image: url(../img/topbar-dark-bg.svg);
 /*    opacity: 0.5;*/
 }
+.topbar-search-input::placeholder {
+    color: #fff;
+}
 .topbar-search-go {
     border: 1px solid #fff;
     display: inline-block;
