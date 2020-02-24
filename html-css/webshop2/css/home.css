@@ -537,7 +537,9 @@ NEWS_EVENTS
     font-size: 34px;
     font-weight: 500;
     line-height: 48px;
-/*    float: right;*/
+}
+.events-header-navi:hover {
+    color: #f44336;
 }
 .events-band {
     display: flex;
