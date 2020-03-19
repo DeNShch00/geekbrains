@@ -12,3 +12,36 @@
 Класс-исключение должен не позволить пользователю ввести текст (не число) и отобразить соответствующее сообщение.
 При этом работа скрипта не должна завершаться.
 """
+
+
+class NotIntNumberError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+
+
+def main():
+    nums = []
+    while True:
+        s = input('Enter integer number of "stop" to done input: ')
+        if s == 'stop':
+            break
+
+        try:
+            error = True
+            if len(s) > 0:
+                if s.isdigit():
+                    error = False
+                elif s[0] == '-' and s[1:].isdigit():
+                    error = False
+
+            if error:
+                raise NotIntNumberError('You input not an integer number')
+
+            nums.append(int(s))
+        except NotIntNumberError as e:
+            print(e)
+
+    print(nums)
+
+
+main()
