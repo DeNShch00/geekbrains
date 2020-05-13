@@ -1,0 +1,24 @@
+# Устанавливаем MySQL 8
+
+# получить конфигуратор
+wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb
+
+# получить ключ, необходимый для работы конфигуратора
+sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 5072E1F5
+
+# выполняем начальную конфигурацию
+sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb
+
+# обновляем список пакетов с учетом установщика MySQL 8
+sudo apt update
+
+# установка сервера и клиента MySQL 8
+sudo apt-get install mysql-server
+
+
+# Смотрим версии
+mysql -V
+mysqld -V
+
+# Заходим в консольный клиент
+mysql -u root -p
