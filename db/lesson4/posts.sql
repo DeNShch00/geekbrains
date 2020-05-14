@@ -45,12 +45,25 @@ CREATE TABLE posts_likes (
 );
 
 -- лайки\дизлайки комментариев постов
-CREATE TABLE posts_likes (
+CREATE TABLE posts_comments_likes (
   post_comment_id INT UNSIGNED NOT NULL,
   user_id INT UNSIGNED NOT NULL, -- пользователь ставящий лайк\дизлайк
   likes BOOLEAN NOT NULL, -- TURE - лайк, FALSE - дизлайк
-  PRIMARY KEY (post_id, user_id)
+  PRIMARY KEY (post_comment_id, user_id)
 );
+
+-- таблица тегов
+CREATE TABLE tags (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  value VARCHAR(50) -- тег, например "Природа"
+);
+
+-- таблица сопоставления тегов постам
+CREATE TABLE posts_tags (
+  post_id INT UNSIGNED NOT NULL,
+  tag_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (post_id, tag_id)
+ );
 
 
 
