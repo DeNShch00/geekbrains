@@ -1,7 +1,6 @@
 /*
-Подсчитайте количество дней рождения, которые приходятся на каждый из дней недели. Следует учесть, что необходимы дни недели текущего года, а не года рождения.
+Из таблицы users необходимо извлечь пользователей, родившихся в августе и мае. Месяцы заданы в виде списка английских названий ('may', 'august')
 */
-
 
 USE lesson5;
 
@@ -25,9 +24,4 @@ VALUES
   ('Мария', '2006-08-29');
  
 SELECT * FROM users;
-SELECT 
-  DATE_FORMAT(DATE(CONCAT_WS('-', YEAR(NOW()), MONTH(birthday_at), DAY(birthday_at))), '%W') AS day,
-  COUNT(*) AS total 
- FROM users
-GROUP BY day
-ORDER BY total;
+SELECT name FROM users WHERE DATE_FORMAT(birthday_at, '%M') IN ('may', 'august')
