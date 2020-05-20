@@ -35,11 +35,15 @@ SELECT IF(
 
 -- показатель активности: 20*<кол-во созданных сообщений> + 30*<кол-во созданныхпостов> +  50*<kол-во поставленных лайков>
 -- где 20, 30, 50 - весовые коэффициенты
+-- показатель активности считаем за прошедший год
 
-SELECT user_id, SUM(total) AS activity FROM (
-	(SELECT from_user_id AS user_id, 20*COUNT(*) AS total FROM messages GROUP BY from_user_id)
-	UNION
-	(SELECT user_id, 30*COUNT(*) FROM posts GROUP BY user_id)
-	UNION
-	(SELECT user_id, 50*COUNT(*) FROM likes GROUP BY user_id)
+SELECT user_id,
+	(SELECT CONCAT(first_name, ' ', last_name) FROM users WHERE id = user_id) AS name,
+	SUM(total) AS activity 
+	FROM (
+		(SELECT from_user_id AS user_id, 20*COUNT(*) AS total FROM messages WHERE TIMESTAMPDIFF(DAY, created_at, NOW()) < 365 GROUP BY from_user_id)
+		UNION
+		(SELECT user_id, 30*COUNT(*) FROM posts WHERE TIMESTAMPDIFF(DAY, created_at, NOW()) < 365 GROUP BY user_id)
+		UNION
+		(SELECT user_id, 50*COUNT(*) FROM likes WHERE TIMESTAMPDIFF(DAY, created_at, NOW()) < 365 GROUP BY user_id)
 ) AS tmp GROUP BY user_id ORDER BY activity LIMIT 10;
