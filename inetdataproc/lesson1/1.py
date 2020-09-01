@@ -10,7 +10,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 
 proxies = {
  'http': 'http://username:password@server:port',
- 'https': 'http://username:password@server:port'
+ 'https': 'https://username:password@server:port'
 }
 
 while True:

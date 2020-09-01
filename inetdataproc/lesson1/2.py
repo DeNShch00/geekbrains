@@ -2,11 +2,17 @@
 2. Изучить список открытых API. Найти среди них любое, требующее авторизацию (любого типа).
  Выполнить запросы к нему, пройдя авторизацию. Ответ сервера записать в файл.
 
- В качестве отрытого API выбран API Геокодера Яндекс Карт.
+ В качестве открытого API выбран API Геокодера Яндекс Карт.
  https://tech.yandex.ru/maps/geocoder/doc/desc/concepts/about-docpage/
  Этот API позволяет определять координаты объекта по его адресу, или адрес объекта по его координатам.
- example:
-    Enter coordinates <longitude, latitude> "quit" to exit: 37.597576,55.771899
+ Example:
+    Чтобы определить координаты здания по адресу "ул. Тверская, дом 7" (здание Центрального Телеграфа в Москве),
+    можно выполнить следующий запрос:
+        https://geocode-maps.yandex.ru/1.x/?apikey=ваш API-ключ&geocode=Москва,+Тверская+улица,+дом+7
+    В ответе геокодера будут географические координаты этого здания, а также дополнительная информация
+     о найденном объекте (см. страницу Ответ геокодера).
+    При обратном геокодировании в запросе указываются координаты искомого объекта:
+        https://geocode-maps.yandex.ru/1.x/?apikey=ваш API-ключ&geocode=37.597576,55.771899
 """
 
 import requests
@@ -16,7 +22,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 
 proxies = {
  'http': 'http://username:password@server:port',
- 'https': 'http://username:password@server:port'
+ 'https': 'https://username:password@server:port'
 }
 
 url = f'https://geocode-maps.yandex.ru/1.x/'
