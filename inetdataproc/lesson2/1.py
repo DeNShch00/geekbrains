@@ -27,14 +27,23 @@ from bs4 import BeautifulSoup
 #     'text': None
 # }
 
+def num_from_str(s):
+    num = [c for c in s if c.isdigit()]
+    try:
+        return int(''.join(num))
+    except ValueError:
+        pass
+
+    return None
+
 
 class MyRequests:
     headers = {'User_Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36'
                              ' (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
 
     proxies = {
-        'http': 'http://shchelakov.den:ntggjojcm@msk-tmg-04.infotecs-nt:3128',
-        'https': 'https://shchelakov.den:ntggjojcm@msk-tmg-04.infotecs-nt:3128'
+        'http': 'http://username:password@server:port',
+        'https': 'https://username:password@server:port'
     }
 
     @staticmethod
@@ -62,18 +71,19 @@ class Superjob:
                 vacancy_list = soup.find_all('div', {'class': 'f-test-vacancy-item'})
                 if len(vacancy_list):
                     for vacancy in vacancy_list:
-                        self._parse_vacancy_block(vacancy)
+                        yield self._parse_vacancy_block(vacancy)
 
                     params['page'] += 1
-                    # continue
+                    continue
 
             break
 
     @staticmethod
     def _parse_vacancy_block(block):
-        print(Superjob._parse_vacancy_name(block))
-        print(Superjob._parse_vacancy_salary(block))
-        print(Superjob._parse_vacancy_link(block))
+        name = Superjob._parse_vacancy_name(block)
+        salary = Superjob._parse_vacancy_salary(block)
+        link = Superjob._parse_vacancy_link(block)
+        return name, salary, link
 
     @staticmethod
     def _parse_vacancy_name(block):
@@ -88,7 +98,21 @@ class Superjob:
         min_salary = None
         max_salary = None
         for salary in block.find_all('span', {'class': 'f-test-text-company-item-salary'}):
-            print(salary.getText())
+            text = salary.getText().lower().strip()
+            if text and text != 'по договорённости':
+                if '—' in text:
+                    parts = text.split('—')
+                    if len(parts) == 2:
+                        min_salary = num_from_str(parts[0].replace(' ', ''))
+                        max_salary = num_from_str(parts[1].replace(' ', ''))
+                elif 'от ' in text:
+                    min_salary = num_from_str(text.replace(' ', ''))
+                elif 'до ' in text:
+                    max_salary = num_from_str(text.replace(' ', ''))
+                elif text[0].isdigit():
+                    max_salary = min_salary = num_from_str(text.replace(' ', ''))
+                else:
+                    print('unknown salary format: ', text)
 
         return min_salary, max_salary
 
@@ -102,8 +126,8 @@ class Superjob:
         return 'unknown'
 
 
-Superjob('преподаватель математики').get()
-
+# Superjob('преподаватель математики').get()
+Superjob('программист').get()
 
 # <span class="_1OuF_ _1qw9T f-test-text-company-item-salary"><span><span class="_3mfro _2Wp8I PlM3e _2JVkc _2VHxz">72&nbsp;280<span>&nbsp;<!-- -->—<!-- -->&nbsp;</span>90&nbsp;350<!-- -->&nbsp;<!-- -->руб.</span></span><span>/<span class="_3mfro PlM3e _2JVkc _2VHxz">месяц</span></span></span>
 # <a class="icMQ_ _6AfZ9 f-test-link-Uchitel_matematiki _2JivQ _1UJAN" target="_blank" href="/vakansii/uchitel-matematiki-32168401.html?search_id=9b4f9966-edbd-11ea-bdcd-fe87291dd3d0&amp;vacancyShouldHighlight=true"><span class="_1rS-s">Учитель</span> <span class="_1rS-s">математики</span></a>
