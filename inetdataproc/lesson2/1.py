@@ -28,7 +28,7 @@ def num_from_str(s):
 
 
 class MyRequests:
-    headers = {'User_Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36'
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36'
                              ' (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
 
     proxies = {
@@ -128,9 +128,9 @@ class Superjob(PagedJobSite):
                     if len(parts) == 2:
                         min_salary = num_from_str(parts[0].replace(' ', ''))
                         max_salary = num_from_str(parts[1].replace(' ', ''))
-                elif 'от ' in text:
+                elif 'от ' in text:
                     min_salary = num_from_str(text.replace(' ', ''))
-                elif 'до ' in text:
+                elif 'до ' in text:
                     max_salary = num_from_str(text.replace(' ', ''))
                 elif text[0].isdigit():
                     max_salary = min_salary = num_from_str(text.replace(' ', ''))
@@ -171,7 +171,7 @@ class HH(PagedJobSite):
 
     def _get_vacancy_name(self, vacancy_block):
         for link in vacancy_block.find_all('a', {'data-qa': 'vacancy-serp__vacancy-title'}):
-                return link.getText()
+            return link.getText()
 
         return 'unknown'
 
@@ -186,9 +186,9 @@ class HH(PagedJobSite):
                     if len(parts) == 2:
                         min_salary = num_from_str(parts[0].replace(' ', ''))
                         max_salary = num_from_str(parts[1].replace(' ', ''))
-                elif 'от ' in text:
+                elif 'от ' in text:
                     min_salary = num_from_str(text.replace(' ', ''))
-                elif 'до ' in text:
+                elif 'до ' in text:
                     max_salary = num_from_str(text.replace(' ', ''))
                 elif text[0].isdigit():
                     max_salary = min_salary = num_from_str(text.replace(' ', ''))
@@ -206,19 +206,14 @@ class HH(PagedJobSite):
 
 def main():
     while True:
-        vacancy = input('Enter GitHub user name or "quit" to exit: ')
+        vacancy = input('Enter vacancy name or "quit" to exit: ')
         if vacancy == 'quit':
             break
 
-        for info in Superjob().get(vacancy):
-            print(info)
-
-        # TODO: Запросы к hh.ru вылетают с ошибкой 404, нужно разобраться почему
-        for info in HH().get(vacancy):
-            print(info)
+        for source in (Superjob(), HH()):
+            for info in source.get(vacancy):
+                print(info)
 
 
 if __name__ == '__main__':
     main()
-
-
