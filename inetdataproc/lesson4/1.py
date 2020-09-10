@@ -20,8 +20,8 @@ class MyRequests:
                              ' (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
 
     proxies = {
-        'http': 'http://shchelakov.den:ntggjojcm@msk-tmg-04.infotecs-nt:3128',
-        'https': 'https://shchelakov.den:ntggjojcm@msk-tmg-04.infotecs-nt:3128'
+        'http': 'http://username:password@server:port',
+        'https': 'https://username:password@server:port'
     }
 
     @staticmethod
