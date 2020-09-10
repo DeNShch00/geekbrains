@@ -22,7 +22,7 @@ def num_from_str(s):
 
 
 class MyRequests:
-    headers = {'User_Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36'
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36'
                              ' (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
 
     proxies = {
@@ -248,15 +248,12 @@ def main():
         if vacancy == 'quit':
             break
 
-        for site, vacancy_id, name, salary, link in Superjob().get(vacancy):
-            # Добавляем только новые вакансии с сайта
-            if vacancies_db.count_documents({'site': site, 'vacancy_id': vacancy_id}) == 0:
-                doc = json_vacancy_document(site, vacancy_id, name, salary, link)
-                vacancies_db.insert_one(doc)
-
-        # TODO: Запросы к hh.ru вылетают с ошибкой 404, нужно разобраться почему
-        for info in HH().get(vacancy):
-            print(info)
+        for source in (Superjob(), HH()):
+            for site, vacancy_id, name, salary, link in source.get(vacancy):
+                # Добавляем только новые вакансии с сайта
+                if vacancies_db.count_documents({'site': site, 'vacancy_id': vacancy_id}) == 0:
+                    doc = json_vacancy_document(site, vacancy_id, name, salary, link)
+                    vacancies_db.insert_one(doc)
 
     while True:
         salary = input('Enter salary to search vacancy or "quit" to exit: ')
