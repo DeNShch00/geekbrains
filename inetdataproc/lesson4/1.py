@@ -104,7 +104,23 @@ class YandexNews(NewsSite):
 
     def _parse_news(self, html_doc):
         news = []
-        # TODO: add parse here
+        dom = html.fromstring(html_doc)
+        for item in dom.xpath("//article[contains(@class, ' news-card ')]"):
+            name = item.xpath(".//h2[@class='news-card__title']/text()")[0]
+            link = item.xpath(".//a[@class='news-card__link']/@href")[0]
+            time = item.xpath(".//span[@class='mg-card-source__time']/text()")[0]
+            if time.startswith('вчера'):
+                hours, minutes = time.rsplit(' ', 1)[1].split(':')
+                date = datetime.date.today() - datetime.timedelta(days=1)
+            else:
+                hours, minutes = time.split(':')
+                date = datetime.date.today()
+
+            time = datetime.time(int(hours), int(minutes))
+            date = datetime.datetime.combine(date, time)
+
+            source = item.xpath(".//span[@class='mg-card-source__source']/a/text()")[0]
+            news.append({'name': name, 'link': link, 'date': date, 'source': source})
 
         return news
 
