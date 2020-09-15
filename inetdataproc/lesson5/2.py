@@ -62,9 +62,8 @@ for item in hits_block.find_elements_by_tag_name('li'):
     name = item.find_element_by_class_name('sel-product-tile-title').text
     link = item.find_element_by_class_name('sel-product-tile-title').get_attribute('href')
     price = item.find_element_by_class_name('c-pdp-price__current').text
-    # price = int(price.replace(' ', ''))
-    # mvideo_hits_db.insert_one({'name': name, 'link': link, 'price': price})
-    print({'name': name, 'link': link, 'price': price})
+    price = int(price[:-1].replace(' ', ''))
+    mvideo_hits_db.insert_one({'name': name, 'link': link, 'price': price})
 
 for hit in mvideo_hits_db.find({}):
     print(hit)
