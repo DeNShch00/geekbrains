@@ -44,7 +44,7 @@ passwd.send_keys(Keys.RETURN)
 
 wait_element_by_class_name(driver, 'js-letter-list-item')
 last_letter_id_on_page = last_letter_id_in_box = 0
-links_on_letter = []
+links_on_letter = set()
 
 while True:
     letters = driver.find_elements_by_class_name('js-letter-list-item')
@@ -57,7 +57,7 @@ while True:
     else:
         last_letter_id_in_box = last_letter_id_on_page
 
-    links_on_letter.extend(item.get_attribute('href') for item in letters)
+    links_on_letter.update({item.get_attribute('href') for item in letters})
 
     actions = ActionChains(driver)
     actions.move_to_element(letters[-1])
