@@ -28,4 +28,5 @@ class LeroymerlinparserItem(scrapy.Item):
     photos = scrapy.Field()
     props_names = scrapy.Field()
     props_values = scrapy.Field(input_processor=MapCompose(format_props_value))
+    props = scrapy.Field()
     _id = scrapy.Field()

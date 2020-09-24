@@ -17,6 +17,10 @@ class LeroymerlinparserPipeline:
         self.mongo_base = client.leroymerlin_products
 
     def process_item(self, item, spider):
+        item['props'] = dict(zip(item['props_names'], item['props_values']))
+        del item['props_names']
+        del item['props_values']
+
         collection = self.mongo_base[spider.name]
         collection.insert_one(item)
         return item
