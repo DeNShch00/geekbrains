@@ -31,12 +31,12 @@ class LeroymerlinPhotosPipeline(ImagesPipeline):
         if item['photos']:
             for img in item['photos']:
                 try:
-                    yield scrapy.Request(img, cb_kwargs={'product_url': item['url']})
+                    yield scrapy.Request(img, meta={'product_url': item['url']})
                 except Exception as e:
                     print(e)
 
     def file_path(self, request, response=None, info=None):
-        product_url = request.cb_kwargs['product_url']
+        product_url = request.meta['product_url']
         folder = product_url.split('/')[-2]
         file_name = request.url.split('/')[-1]
         return folder + '/' + file_name
