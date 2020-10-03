@@ -2,6 +2,7 @@ import scrapy
 from scrapy.http import HtmlResponse
 import re
 import json
+from functools import partial
 
 from instagramparser.instarequests import AuthRequest, MainPageRequest, FollowersRequest, FollowingRequest
 from instagramparser.instapaginators import FollowersPaginator, FollowingPaginator
@@ -39,24 +40,19 @@ class InstagramSpider(scrapy.Spider):
     def process_user_main_page(self, response: HtmlResponse):
         profile = response.meta
         profile['id'] = self.fetch_user_id(response.text, profile['name'])
-        yield FollowersRequest(profile['id']).do(response, self.process_user_followers, profile)
-        yield FollowingRequest(profile['id']).do(response, self.process_user_following, profile)
+        callback = partial(self.process_user_follow, paginator_class=FollowersPaginator, request_class=FollowersRequest)
+        yield FollowersRequest(profile['id']).do(response, callback, profile)
+        callback = partial(self.process_user_follow, paginator_class=FollowingPaginator, request_class=FollowingRequest)
+        yield FollowingRequest(profile['id']).do(response, callback, profile)
 
-    def process_user_followers(self, response: HtmlResponse):
+    def process_user_follow(self, response: HtmlResponse, paginator_class, request_class):
         profile = response.meta
         data = json.loads(response.text)
-        paginator = FollowersPaginator(data)
+        paginator = paginator_class(data)
         if paginator.has_next_page:
-            request = paginator.next_page(FollowersRequest(profile['id']))
-            yield request.do(response, self.process_user_followers, profile)
-
-    def process_user_following(self, response: HtmlResponse):
-        profile = response.meta
-        data = json.loads(response.text)
-        paginator = FollowingPaginator(data)
-        if paginator.has_next_page:
-            request = paginator.next_page(FollowingRequest(profile['id']))
-            yield request.do(response, self.process_user_following, profile)
+            request = paginator.next_page(request_class(profile['id']))
+            callback = partial(self.process_user_follow, paginator_class=paginator_class, request_class=request_class)
+            yield request.do(response, callback, profile)
 
     @staticmethod
     def fetch_csrf_token(text):
