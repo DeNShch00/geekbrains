@@ -11,6 +11,6 @@ if __name__ == '__main__':
     crawler_settings.setmodule(settings)
 
     process = CrawlerProcess(settings=crawler_settings)
-    process.crawl(InstagramSpider, target_users=['pianalytix'])
+    process.crawl(InstagramSpider, target_users=['pianalytix', 'data_science_beginners'])
 
     process.start()
